@@ -1,9 +1,24 @@
 const tg = window.Telegram.WebApp;
 
-document.getElementById('sendCity').addEventListener('click', () => {
-    tg.sendData('city=Moscow'); // Отправляем данные о городе
+// Инициализация Mini App
+tg.ready();
+
+// Кнопка "Получить погоду"
+document.getElementById('getWeather').addEventListener('click', () => {
+    tg.sendData('action=get_weather'); // Отправляем действие в бот
 });
 
-document.getElementById('sendLanguage').addEventListener('click', () => {
-    tg.sendData('language=en'); // Отправляем данные о языке
+// Кнопка "Настройки"
+document.getElementById('settings').addEventListener('click', () => {
+    tg.sendData('action=open_settings'); // Открываем настройки
+});
+
+// Кнопка "Активировать премиум"
+document.getElementById('activatePremium').addEventListener('click', () => {
+    tg.sendData('action=activate_premium'); // Активируем премиум
+});
+
+// Кнопка "Закрыть приложение"
+document.getElementById('closeApp').addEventListener('click', () => {
+    tg.close(); // Закрываем Mini App
 });
